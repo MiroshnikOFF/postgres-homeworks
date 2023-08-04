@@ -13,13 +13,11 @@ def get_data_from_csv(file_name: str) -> list:
     """
     with open(file_name, encoding='utf-8') as file:
         reader = csv.reader(file, delimiter=',')
-        count = 0
         data = []
         for row in reader:
             if count > 0:
                 data.append(tuple(row))
-            count += 1
-    return data
+    return data[1:]
 
 
 try:
