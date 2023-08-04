@@ -15,8 +15,7 @@ def get_data_from_csv(file_name: str) -> list:
         reader = csv.reader(file, delimiter=',')
         data = []
         for row in reader:
-            if count > 0:
-                data.append(tuple(row))
+            data.append(tuple(row))
     return data[1:]
 
 
