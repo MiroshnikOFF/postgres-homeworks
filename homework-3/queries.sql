@@ -22,14 +22,13 @@ WHERE customers.city = orders.employee_city AND ship_via = (
 SELECT product_name, units_in_stock, contact_name, phone
 FROM products
 JOIN suppliers USING(supplier_id)
-WHERE discontinued = 0 AND units_in_stock < 25 AND category_id IN (SELECT category_id
-																   FROM categories
-																   WHERE category_name IN
-																   (
-																	'Dairy Products',
-																	'Condiments'
-																   )
-																  )
+WHERE discontinued = 0 AND units_in_stock < 25 AND category_id IN (
+                                                                   SELECT category_id FROM categories
+                                                                   WHERE category_name IN (
+                                                                                           'Dairy Products',
+                                                                                           'Condiments'
+                                                                                           )
+                                                                   )
 ORDER BY units_in_stock
 
 
