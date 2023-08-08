@@ -36,18 +36,14 @@ ORDER BY units_in_stock
 
 SELECT company_name
 FROM customers
-WHERE customer_id NOT IN (SELECT customer_id
-					  FROM orders
-	                 )
+WHERE customer_id NOT IN (SELECT customer_id FROM orders)
 
 
 -- 4. уникальные названия продуктов, которых заказано ровно 10 единиц (количество заказанных единиц см в колонке quantity табл order_details)
 -- Этот запрос написать именно с использованием подзапроса.
 
 SELECT DISTINCT(product_name)
-FROM (SELECT product_id, quantity
-	  FROM order_details
-	 ) AS product_quantity
+FROM (SELECT product_id, quantity FROM order_details) AS product_quantity
 JOIN products USING(product_id)
 WHERE product_quantity.quantity = 10
 
