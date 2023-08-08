@@ -11,7 +11,7 @@ JOIN customers USING(customer_id)
 WHERE customers.city = orders.employee_city AND ship_via = (
                                                             SELECT shipper_id FROM shippers
                                                             WHERE company_name = 'United Package'
-														   )
+                                                            )
 
 
 -- 2. Наименование продукта, количество товара (product_name и units_in_stock в табл products),
