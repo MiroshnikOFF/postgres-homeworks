@@ -8,7 +8,7 @@ FROM (SELECT customer_id, CONCAT(first_name, ' ', last_name) AS employee, city A
       JOIN employees USING(employee_id)
      ) AS orders
 JOIN customers USING(customer_id)
-WHERE customers.city = orders.employee_city AND ship_via = (
+WHERE customers.city = orders.employee_city AND customers.city = 'London' AND ship_via = (
                                                             SELECT shipper_id FROM shippers
                                                             WHERE company_name = 'United Package'
                                                             )
